@@ -1,4 +1,4 @@
 videos
 data
-!videos\.gitignore
-!data\.gitignore
+!videos/.gitignore
+!data/.gitignore
