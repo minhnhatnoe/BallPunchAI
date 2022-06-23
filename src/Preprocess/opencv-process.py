@@ -1,13 +1,14 @@
 import cv2
 paths = ["VID3", "VID2", "VID4", "VID5", "VID6"]
+video_folder = "Dataset"
 a_folder = "Dataset\\Punch"
 b_folder = "Dataset\\NotPunch"
+cv2.namedWindow("X")
 for name in paths:
-    path = f"Dataset\\{name}.mp4"
+    path = f"{video_folder}\\{name}.mp4"
     video_capture = cv2.VideoCapture(path)
     success,image = video_capture.read()
     index = 0
-    cv2.namedWindow("X")
     while success:
         success,image = video_capture.read()
         img_name = f"{name}_{index}"
