@@ -4,7 +4,7 @@ import cv2
 
 dataset_path = path.realpath(path.join(path.realpath(__file__), path.pardir, "Dataset"))
 video_folder_path = path.realpath(path.join(dataset_path, "videos"))
-
+data_folder_path = path.realpath(path.join(dataset_path, "data"))
 def load_data(video_name: str) -> dict:
     file_path = path.join(dataset_path, f"{video_name}.json")
     try:
