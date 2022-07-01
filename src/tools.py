@@ -8,7 +8,7 @@ data_folder_path = path.realpath(path.join(dataset_path, "data"))
 
 def file_path(function):
     def altered_function(video_name: str, *args, **kwargs):
-        video_name = path.join(dataset_path, "data", f"{video_name}.npy")
+        video_name = path.join(dataset_path, "data", f"{video_name}")
         return function(video_name, *args, **kwargs)
     return altered_function
 
@@ -22,6 +22,10 @@ def load_data(file_path: str) -> list:
         return np.load(file_path).tolist()
     except FileNotFoundError:
         return []
+
+@file_path
+def flush_extract(file_path: str, **kwargs) -> None:
+    np.savez(file_path, **kwargs)
 
 def get_video_path(video_name: str) -> str:
     return path.join(video_folder_path, f"{video_name}.mp4")
