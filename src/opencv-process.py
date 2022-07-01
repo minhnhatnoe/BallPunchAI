@@ -20,16 +20,16 @@ def process_video(video_name: str) -> bool:
         image_small = cv2.resize(image, (0, 0), fx=0.5, fy=0.5)
         cv2.imshow(video_name, image_small)
         state = cv2.waitKey()
-        if state == 32:  # Space
+        if state == 49:  # 1
             data_array.append(False)
-        elif state == 13:  # Enter
+        elif state == 48:  # 0
             data_array.append(True)
-        elif state == 27: # Escape
+        elif state == 27 or state == -1: # Escape or AltF4
             print("Exiting")
             exit(0)
         else:
             data_array.pop()
-            print("Reverting")
+            print(f"{state} pressed. Reverting")
             tools.flush_data(video_name, data_array)
             return True
         if count % 100 == 0:
