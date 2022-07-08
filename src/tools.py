@@ -19,7 +19,7 @@ def flush_data(file_path: str, array: list) -> None:
 @file_path
 def load_data(file_path: str) -> list:
     try:
-        return np.load(file_path).tolist()
+        return np.load(f"{file_path}.npy").tolist()
     except FileNotFoundError:
         return []
 

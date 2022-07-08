@@ -8,7 +8,7 @@ def process_video(video_name: str) -> bool:
     read_successful, image = video_capture.read()
     video_array = []
     while read_successful:
-        image = cv2.resize(image, (0, 0), fx=0.3, fy=0.3)
+        image = cv2.resize(image, (256, 256))
         video_array.append(image)
         read_successful, image = video_capture.read()
     video_array = np.array(video_array)

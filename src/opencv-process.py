@@ -36,6 +36,7 @@ def process_video(video_name: str) -> bool:
             tools.flush_data(video_name, data_array)
         read_successful, image = video_capture.read()
         count += 1
+    tools.flush_data(video_name, data_array)
     cv2.destroyWindow(video_name)
     return False
 
