@@ -25,10 +25,13 @@ def process_video(video_name: str) -> bool:
         elif state == 48:  # 0
             data_array.append(True)
         elif state == 27 or state == -1: # Escape or AltF4
+            tools.flush_data(video_name, data_array)
             print("Exiting")
             exit(0)
         else:
-            data_array.pop()
+            for _ in range(10):
+                if len(data_array) == 0: break
+                data_array.pop()
             print(f"{state} pressed. Reverting")
             tools.flush_data(video_name, data_array)
             return True
