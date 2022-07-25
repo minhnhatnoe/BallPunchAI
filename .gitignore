@@ -1,2 +1,5 @@
 venv
 .vscode
+*.png
+*.csv
+*.pyc
